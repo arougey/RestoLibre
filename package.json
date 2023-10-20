@@ -17,6 +17,7 @@
     "babel": "^6.23.0",
     "expo": "~49.0.13",
     "expo-status-bar": "~1.6.0",
+    "lodash.debounce": "^4.0.8",
     "postcss": "^8.1.0",
     "react": "18.2.0",
     "react-native": "0.72.5",
