@@ -9,25 +9,25 @@ const data = [
     id: 'hs',
     title: 'Home',
     screen: 'HomeScreen',
-    image: '/Users/alexrougebec/Projects/RestoLibre/assets/home.png'
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/house.png')
   },
   {
     id: 'es',
     title: 'Explore',
     screen: 'ExploreScreen',
-    image: '/Users/alexrougebec/Projects/RestoLibre/assets/world.png'
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/globe.png')
   },
   {
     id: 'rs',
     title: 'Reservations',
     screen: 'ReservationScreen',
-    image: '/Users/alexrougebec/Projects/RestoLibre/assets/notepad.png'
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/table.jpg')
   },
   {
     id: 'as',
     title: 'Account',
     screen: 'AccountScreen',
-    image: '/Users/alexrougebec/Projects/RestoLibre/assets/bust.png'
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/account.png')
   },
 ]
 
@@ -48,7 +48,7 @@ const BotNavBar = () => {
               )}
             >
               <Image
-                source={{uri: item.image}}
+                source={item.image}
                 style={styles.image}
                 resizeMode='contain'
               />
@@ -63,9 +63,11 @@ export default BotNavBar
 
 const styles = StyleSheet.create({
   buttonContainer: {
+    flex:1,
     flexDirection: 'row',
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height/10
+    height: Dimensions.get('window').height/10,
+    backgroundColor: "red",
   },
   button: {
     width: Dimensions.get('window').width/4, // Each button takes up equal width
@@ -73,6 +75,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', // Change to your desired button style
     alignItems: 'center',
     justifyContent: 'center',
+    borderTopColor:"black",
+    borderTopWidth: 1
   },
   image: {
     height: 40,
