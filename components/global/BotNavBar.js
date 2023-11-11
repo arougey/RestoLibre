@@ -9,25 +9,25 @@ const data = [
     id: 'hs',
     title: 'Home',
     screen: 'HomeScreen',
-    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/house.png')
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/navbar_pics/house.png')
   },
   {
     id: 'es',
     title: 'Explore',
     screen: 'ExploreScreen',
-    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/globe.png')
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/navbar_pics/globe.png')
   },
   {
     id: 'rs',
     title: 'Reservations',
     screen: 'ReservationScreen',
-    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/table.jpg')
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/navbar_pics/table.jpg')
   },
   {
     id: 'as',
     title: 'Account',
     screen: 'AccountScreen',
-    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/account.png')
+    image: require('/Users/alexrougebec/Projects/RestoLibre/assets/pictures/navbar_pics/account.png')
   },
 ]
 
