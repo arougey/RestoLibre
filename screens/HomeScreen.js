@@ -36,63 +36,72 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.safeView}>
       <ScrollView style={styles.scrollView}>
-        <View style={tw`flex-1 bg-white`}>
-          <TopSearchBar/>
+        <TopSearchBar/>
           <View style={styles.mainView}>
             <View style={styles.titleView}>
-              <Text style={styles.title}>Your Recent Trips:</Text>
+              <Text style={styles.titleText}>Your Recent Trips:</Text>
             </View>
           {/*Promoted*/}
 
           {/*recent trips*/}
-          <FlatList
-            contentContainerStyle={styles.recentTripsContainer}
-            horizontal
-            data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={({item}) => (
-              <TouchableOpacity 
-                style={styles.restaurantButton}
-                onPress={() => (
-                  console.log("pressed res. button")
-                )}
-              >
-                <Image
-                  source={item.image}
-                />
-                <Text>{item.description}</Text>
-                <Text>{item.rating}</Text>
-              </TouchableOpacity>
-            )}
-          />
+          <View style={styles.recentTrips}>
+            <FlatList
+              contentContainerStyle={styles.recentTripsContainer}
+              horizontal
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity 
+                  style={styles.restaurantButton}
+                  onPress={() => (
+                    console.log("pressed res. button")
+                  )}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.restaurantImage}
+                  />
+                  <Text>{item.description}</Text>
+                  <Text>{item.rating}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
           {/* recently viewed */}
           
           {/*closest to you*/}
           </View>
-        </View>
       </ScrollView>
-        <BotNavBar/>
-      </SafeAreaView>
-    
+      <BotNavBar/>
+    </SafeAreaView>
   );
 };
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: "orange",
+    height: '90%',
+  },
+  restaurantButton: {
+    backgroundColor: 'white',
+    width: Dimensions.get('window').width/3,
+  },
+  restaurantImage: {
+    width: 100,
+    height: 100,
+  },
   searchView: {
     
   },
   safeView: {
     backgroundColor:"green",
-    height:'100%'
   },
   mainView: {
     backgroundColor:"blue",
-    height: '80%',
   },
   titleView: {
-    height: '10%',
     justifyContent: 'center'
   },
   title: {
