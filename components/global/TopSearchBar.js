@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigation } from  '@react-navigation/native'
 import debounce from 'lodash/debounce';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { SearchBar } from 'react-native-elements';
 
 const debouncedRestaurantSearch = debounce((text) => {
   //restaurant search logic here use backend or API
@@ -20,26 +21,20 @@ const TopSearchBar = () => {
   const navigation = useNavigation()
 
   return (
-    <View style={styles.searchView}>
-      <TextInput
+      <SearchBar
         autoCorrect={false}
         value={query}
         onChangeText={(text) => {
           textchangeHandler(text)
         }}
         placeholder="Time To Eat!..."
+        searchIcon={{ size: 24 }}
       />
-      <TouchableOpacity style={styles.iconButton}>
-        <Icon name="search" size={20} color="#000" />
-      </TouchableOpacity>
-    </View>
   )
 }
 
 export default TopSearchBar
 
 const styles = StyleSheet.create({
-  searchView: {
 
-  },
 })

@@ -37,13 +37,38 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.safeView}>
       <ScrollView style={styles.scrollView}>
         <TopSearchBar/>
-          <View style={styles.mainView}>
-            <View style={styles.titleView}>
-              <Text style={styles.titleText}>Your Recent Trips:</Text>
-            </View>
+        <View style={styles.mainView}> 
           {/*Promoted*/}
-
+          <View style={styles.firstView}>
+            <Text style={styles.firstText}>Promoted:</Text>
+          </View>
+          <View style={styles.recentTrips}>
+            <FlatList
+              contentContainerStyle={styles.recentTripsContainer}
+              horizontal
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity 
+                  style={styles.restaurantButton}
+                  onPress={() => (
+                    console.log("pressed res. button")
+                  )}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.restaurantImage}
+                  />
+                  <Text>{item.description}</Text>
+                  <Text>{item.rating}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
           {/*recent trips*/}
+            <View style={styles.firstView}>
+              <Text style={styles.firstText}>Your Recent Trips:</Text>
+            </View>
           <View style={styles.recentTrips}>
             <FlatList
               contentContainerStyle={styles.recentTripsContainer}
@@ -68,8 +93,59 @@ const HomeScreen = () => {
             />
           </View>
           {/* recently viewed */}
-          
+          <View style={styles.firstView}>
+              <Text style={styles.firstText}>Recently Viewed</Text>
+            </View>
+          <View style={styles.recentTrips}>
+            <FlatList
+              contentContainerStyle={styles.recentTripsContainer}
+              horizontal
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity 
+                  style={styles.restaurantButton}
+                  onPress={() => (
+                    console.log("pressed res. button")
+                  )}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.restaurantImage}
+                  />
+                  <Text>{item.description}</Text>
+                  <Text>{item.rating}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
           {/*closest to you*/}
+          <View style={styles.firstView}>
+              <Text style={styles.firstText}>Closest To You</Text>
+            </View>
+          <View style={styles.recentTrips}>
+            <FlatList
+              contentContainerStyle={styles.recentTripsContainer}
+              horizontal
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity 
+                  style={styles.restaurantButton}
+                  onPress={() => (
+                    console.log("pressed res. button")
+                  )}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.restaurantImage}
+                  />
+                  <Text>{item.description}</Text>
+                  <Text>{item.rating}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
           </View>
       </ScrollView>
       <BotNavBar/>
@@ -99,12 +175,12 @@ const styles = StyleSheet.create({
     backgroundColor:"green",
   },
   mainView: {
-    backgroundColor:"blue",
+    backgroundColor:"white",
   },
-  titleView: {
+  firstView: {
     justifyContent: 'center'
   },
-  title: {
+  firstText: {
     marginLeft: '10%',
     fontSize: 30,
     fontWeight: 'bold',
