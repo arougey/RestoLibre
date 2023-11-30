@@ -119,13 +119,40 @@ const HomeScreen = () => {
               )}
             />
           </View>
-          {/*closest to you*/}
+          {/*Most Visited*/}
           <View style={styles.firstView}>
-              <Text style={styles.firstText}>Closest To You</Text>
+              <Text style={styles.firstText}>Most Visited</Text>
             </View>
-          <View style={styles.recentTrips}>
+          <View style={styles.mostVisited}>
             <FlatList
-              contentContainerStyle={styles.recentTripsContainer}
+              contentContainerStyle={styles.mostVisitedContainer}
+              horizontal
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity 
+                  style={styles.restaurantButton}
+                  onPress={() => (
+                    console.log("pressed res. button")
+                  )}
+                >
+                  <Image
+                    source={item.image}
+                    style={styles.restaurantImage}
+                  />
+                  <Text>{item.description}</Text>
+                  <Text>{item.rating}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+          {/*Loved by Friends*/}
+          <View style={styles.firstView}>
+              <Text style={styles.firstText}>Loved by Friends</Text>
+            </View>
+          <View style={styles.mostVisited}>
+            <FlatList
+              contentContainerStyle={styles.mostVisitedContainer}
               horizontal
               data={data}
               keyExtractor={(item) => item.id}
