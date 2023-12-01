@@ -5,6 +5,9 @@ import BotNavBar from '../components/global/BotNavBar'
 import TopSearchBar from '../components/global/TopSearchBar'
 import tw from 'tailwind-react-native-classnames'
 import { ScrollView, FlatList } from 'react-native-gesture-handler'
+import { useDispatch } from 'react-redux'
+import { setDestination } from '../slices/NavSlice'
+import { setId, setImage, setName, setRating } from '../slices/RestaurantSlice'
 
 
 data = [
@@ -13,26 +16,31 @@ data = [
     name: 'Sla',
     rating: 4.3,
     image: require('../assets/pictures/restaurants_pics/slathai.jpeg'),
-    description: 'An authentic Thai restaurant in Montclair NJ',
+    description: "SLA thai restaurant, Valley Road, Montclair, NJ, USA",
+    location: {"lat": 40.84083779999999, "lng": -74.2081668}
   },
   {
     id: "2",
     name: 'Sunhees',
     rating: 2.5,
     image: require('../assets/pictures/restaurants_pics/sunhees.jpg'),
-    description: 'A quaint Korean Restaurant in Troy NY',
+    description: "Sunhee's Farm and Kitchen, Ferry Street, Troy, NY, USA",
+    location: {"lat": 42.7276507, "lng": -73.689377}
   },
   {
     id: "3",
     name: 'Le Bernardin',
     rating: '4.9',
     image: require('../assets/pictures/restaurants_pics/lebernardin.jpg'),
-    description: 'A Michelin star restaurant in New York City, NY',
+    description: "Le Bernardin, West 51st Street, New York, NY, USA",
+    location: {"lat": 40.76142179999999, "lng": -73.9817558}
   },
 ]
 
 
 const HomeScreen = () => {
+  const dispatch = useDispatch()
+
   return (
     <SafeAreaView style={styles.safeView}>
       <ScrollView style={styles.scrollView}>
@@ -51,9 +59,17 @@ const HomeScreen = () => {
               renderItem={({item}) => (
                 <TouchableOpacity 
                   style={styles.restaurantButton}
-                  onPress={() => (
-                    console.log("pressed res. button")
-                  )}
+                  onPress={() => {
+                    dispatch(
+                      setDestination({
+                        location: item.location,
+                        description: item.description
+                      })),
+                      dispatch(setId(item.id));
+                      dispatch(setImage(item.image));
+                      dispatch(setName(item.name));
+                      dispatch(setRating(item.rating));
+                  }}
                 >
                   <Image
                     source={item.image}
@@ -199,7 +215,7 @@ const styles = StyleSheet.create({
     
   },
   safeView: {
-    backgroundColor:"green",
+    backgroundColor:"white",
   },
   mainView: {
     backgroundColor:"white",

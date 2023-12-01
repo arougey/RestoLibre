@@ -13,21 +13,24 @@ data = [
     name: 'Sla',
     rating: 4.3,
     image: require('../assets/pictures/restaurants_pics/slathai.jpeg'),
-    description: 'An authentic Thai restaurant in Montclair NJ',
+    description: "SLA thai restaurant, Valley Road, Montclair, NJ, USA",
+    location: {"lat": 40.84083779999999, "lng": -74.2081668}
   },
   {
     id: "2",
     name: 'Sunhees',
     rating: 2.5,
     image: require('../assets/pictures/restaurants_pics/sunhees.jpg'),
-    description: 'A quaint Korean Restaurant in Troy NY',
+    description: "Sunhee's Farm and Kitchen, Ferry Street, Troy, NY, USA",
+    location: {"lat": 42.7276507, "lng": -73.689377}
   },
   {
     id: "3",
     name: 'Le Bernardin',
     rating: '4.9',
     image: require('../assets/pictures/restaurants_pics/lebernardin.jpg'),
-    description: 'A Michelin star restaurant in New York City, NY',
+    description: "Le Bernardin, West 51st Street, New York, NY, USA",
+    location: {"lat": 40.76142179999999, "lng": -73.9817558}
   },
 ]
 
@@ -199,7 +202,7 @@ const styles = StyleSheet.create({
     
   },
   safeView: {
-    backgroundColor:"green",
+    backgroundColor:"white",
   },
   mainView: {
     backgroundColor:"white",
